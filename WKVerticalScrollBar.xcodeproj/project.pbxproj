@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B47E39B159B93B300D73B5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B47E39A159B93B300D73B5D /* UIKit.framework */; };
+		4B47E39D159B93B300D73B5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B47E39C159B93B300D73B5D /* Foundation.framework */; };
+		4B47E39F159B93B300D73B5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B47E39E159B93B300D73B5D /* CoreGraphics.framework */; };
+		4B47E3A5159B93B300D73B5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B47E3A3159B93B300D73B5D /* InfoPlist.strings */; };
+		4B47E3A7159B93B300D73B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3A6159B93B300D73B5D /* main.m */; };
+		4B47E3AB159B93B300D73B5D /* WKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B47E396159B93B300D73B5D /* WKVerticalScrollBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKVerticalScrollBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B47E39A159B93B300D73B5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4B47E39C159B93B300D73B5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4B47E39E159B93B300D73B5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4B47E3A2159B93B300D73B5D /* WKVerticalScrollBar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WKVerticalScrollBar-Info.plist"; sourceTree = "<group>"; };
+		4B47E3A4159B93B300D73B5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B47E3A6159B93B300D73B5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B47E3A8159B93B300D73B5D /* WKVerticalScrollBar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKVerticalScrollBar-Prefix.pch"; sourceTree = "<group>"; };
+		4B47E3A9159B93B300D73B5D /* WKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAppDelegate.h; sourceTree = "<group>"; };
+		4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B47E393159B93B300D73B5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B47E39B159B93B300D73B5D /* UIKit.framework in Frameworks */,
+				4B47E39D159B93B300D73B5D /* Foundation.framework in Frameworks */,
+				4B47E39F159B93B300D73B5D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B47E38B159B93B300D73B5D = {
+			isa = PBXGroup;
+			children = (
+				4B47E3A0159B93B300D73B5D /* WKVerticalScrollBar */,
+				4B47E399159B93B300D73B5D /* Frameworks */,
+				4B47E397159B93B300D73B5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B47E397159B93B300D73B5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B47E396159B93B300D73B5D /* WKVerticalScrollBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B47E399159B93B300D73B5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B47E39A159B93B300D73B5D /* UIKit.framework */,
+				4B47E39C159B93B300D73B5D /* Foundation.framework */,
+				4B47E39E159B93B300D73B5D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B47E3A0159B93B300D73B5D /* WKVerticalScrollBar */ = {
+			isa = PBXGroup;
+			children = (
+				4B47E3A9159B93B300D73B5D /* WKAppDelegate.h */,
+				4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */,
+				4B47E3A1159B93B300D73B5D /* Supporting Files */,
+			);
+			path = WKVerticalScrollBar;
+			sourceTree = "<group>";
+		};
+		4B47E3A1159B93B300D73B5D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B47E3A2159B93B300D73B5D /* WKVerticalScrollBar-Info.plist */,
+				4B47E3A3159B93B300D73B5D /* InfoPlist.strings */,
+				4B47E3A6159B93B300D73B5D /* main.m */,
+				4B47E3A8159B93B300D73B5D /* WKVerticalScrollBar-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B47E395159B93B300D73B5D /* WKVerticalScrollBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B47E3AE159B93B300D73B5D /* Build configuration list for PBXNativeTarget "WKVerticalScrollBar" */;
+			buildPhases = (
+				4B47E392159B93B300D73B5D /* Sources */,
+				4B47E393159B93B300D73B5D /* Frameworks */,
+				4B47E394159B93B300D73B5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WKVerticalScrollBar;
+			productName = WKVerticalScrollBar;
+			productReference = 4B47E396159B93B300D73B5D /* WKVerticalScrollBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B47E38D159B93B300D73B5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WK;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "litl, LLC";
+			};
+			buildConfigurationList = 4B47E390159B93B300D73B5D /* Build configuration list for PBXProject "WKVerticalScrollBar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4B47E38B159B93B300D73B5D;
+			productRefGroup = 4B47E397159B93B300D73B5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B47E395159B93B300D73B5D /* WKVerticalScrollBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B47E394159B93B300D73B5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B47E3A5159B93B300D73B5D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B47E392159B93B300D73B5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B47E3A7159B93B300D73B5D /* main.m in Sources */,
+				4B47E3AB159B93B300D73B5D /* WKAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4B47E3A3159B93B300D73B5D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B47E3A4159B93B300D73B5D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B47E3AC159B93B300D73B5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B47E3AD159B93B300D73B5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B47E3AF159B93B300D73B5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WKVerticalScrollBar/WKVerticalScrollBar-Prefix.pch";
+				INFOPLIST_FILE = "WKVerticalScrollBar/WKVerticalScrollBar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4B47E3B0159B93B300D73B5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WKVerticalScrollBar/WKVerticalScrollBar-Prefix.pch";
+				INFOPLIST_FILE = "WKVerticalScrollBar/WKVerticalScrollBar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B47E390159B93B300D73B5D /* Build configuration list for PBXProject "WKVerticalScrollBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B47E3AC159B93B300D73B5D /* Debug */,
+				4B47E3AD159B93B300D73B5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B47E3AE159B93B300D73B5D /* Build configuration list for PBXNativeTarget "WKVerticalScrollBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B47E3AF159B93B300D73B5D /* Debug */,
+				4B47E3B0159B93B300D73B5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B47E38D159B93B300D73B5D /* Project object */;
+}
