@@ -13,6 +13,11 @@
 		4B47E3A5159B93B300D73B5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B47E3A3159B93B300D73B5D /* InfoPlist.strings */; };
 		4B47E3A7159B93B300D73B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3A6159B93B300D73B5D /* main.m */; };
 		4B47E3AB159B93B300D73B5D /* WKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */; };
+		4B47E3B3159B965100D73B5D /* WKVerticalScrollBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3B2159B965100D73B5D /* WKVerticalScrollBar.m */; };
+		4B47E3B5159B98AD00D73B5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B47E3B4159B98AD00D73B5D /* QuartzCore.framework */; };
+		4B47E3B8159B98E900D73B5D /* WKTextDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3B7159B98E900D73B5D /* WKTextDemoViewController.m */; };
+		4B47E3BB159B99BE00D73B5D /* WKTextDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3BA159B99BE00D73B5D /* WKTextDemoView.m */; };
+		4B47E3BD159B9DF600D73B5D /* fillerati.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B47E3BC159B9DF600D73B5D /* fillerati.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,14 @@
 		4B47E3A8159B93B300D73B5D /* WKVerticalScrollBar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKVerticalScrollBar-Prefix.pch"; sourceTree = "<group>"; };
 		4B47E3A9159B93B300D73B5D /* WKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAppDelegate.h; sourceTree = "<group>"; };
 		4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAppDelegate.m; sourceTree = "<group>"; };
+		4B47E3B1159B965100D73B5D /* WKVerticalScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVerticalScrollBar.h; sourceTree = "<group>"; };
+		4B47E3B2159B965100D73B5D /* WKVerticalScrollBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVerticalScrollBar.m; sourceTree = "<group>"; };
+		4B47E3B4159B98AD00D73B5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4B47E3B6159B98E900D73B5D /* WKTextDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTextDemoViewController.h; sourceTree = "<group>"; };
+		4B47E3B7159B98E900D73B5D /* WKTextDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTextDemoViewController.m; sourceTree = "<group>"; };
+		4B47E3B9159B99BE00D73B5D /* WKTextDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTextDemoView.h; sourceTree = "<group>"; };
+		4B47E3BA159B99BE00D73B5D /* WKTextDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTextDemoView.m; sourceTree = "<group>"; };
+		4B47E3BC159B9DF600D73B5D /* fillerati.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fillerati.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B47E3B5159B98AD00D73B5D /* QuartzCore.framework in Frameworks */,
 				4B47E39B159B93B300D73B5D /* UIKit.framework in Frameworks */,
 				4B47E39D159B93B300D73B5D /* Foundation.framework in Frameworks */,
 				4B47E39F159B93B300D73B5D /* CoreGraphics.framework in Frameworks */,
@@ -62,6 +76,7 @@
 		4B47E399159B93B300D73B5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B47E3B4159B98AD00D73B5D /* QuartzCore.framework */,
 				4B47E39A159B93B300D73B5D /* UIKit.framework */,
 				4B47E39C159B93B300D73B5D /* Foundation.framework */,
 				4B47E39E159B93B300D73B5D /* CoreGraphics.framework */,
@@ -72,8 +87,9 @@
 		4B47E3A0159B93B300D73B5D /* WKVerticalScrollBar */ = {
 			isa = PBXGroup;
 			children = (
-				4B47E3A9159B93B300D73B5D /* WKAppDelegate.h */,
-				4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */,
+				4B47E3BF159BAAF800D73B5D /* Demo */,
+				4B47E3B1159B965100D73B5D /* WKVerticalScrollBar.h */,
+				4B47E3B2159B965100D73B5D /* WKVerticalScrollBar.m */,
 				4B47E3A1159B93B300D73B5D /* Supporting Files */,
 			);
 			path = WKVerticalScrollBar;
@@ -82,12 +98,26 @@
 		4B47E3A1159B93B300D73B5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4B47E3BC159B9DF600D73B5D /* fillerati.txt */,
 				4B47E3A2159B93B300D73B5D /* WKVerticalScrollBar-Info.plist */,
 				4B47E3A3159B93B300D73B5D /* InfoPlist.strings */,
 				4B47E3A6159B93B300D73B5D /* main.m */,
 				4B47E3A8159B93B300D73B5D /* WKVerticalScrollBar-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B47E3BF159BAAF800D73B5D /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				4B47E3A9159B93B300D73B5D /* WKAppDelegate.h */,
+				4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */,
+				4B47E3B9159B99BE00D73B5D /* WKTextDemoView.h */,
+				4B47E3BA159B99BE00D73B5D /* WKTextDemoView.m */,
+				4B47E3B6159B98E900D73B5D /* WKTextDemoViewController.h */,
+				4B47E3B7159B98E900D73B5D /* WKTextDemoViewController.m */,
+			);
+			name = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B47E3A5159B93B300D73B5D /* InfoPlist.strings in Resources */,
+				4B47E3BD159B9DF600D73B5D /* fillerati.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +186,9 @@
 			files = (
 				4B47E3A7159B93B300D73B5D /* main.m in Sources */,
 				4B47E3AB159B93B300D73B5D /* WKAppDelegate.m in Sources */,
+				4B47E3B3159B965100D73B5D /* WKVerticalScrollBar.m in Sources */,
+				4B47E3B8159B98E900D73B5D /* WKTextDemoViewController.m in Sources */,
+				4B47E3BB159B99BE00D73B5D /* WKTextDemoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +257,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WKVerticalScrollBar/WKVerticalScrollBar-Prefix.pch";
 				INFOPLIST_FILE = "WKVerticalScrollBar/WKVerticalScrollBar-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -234,6 +269,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WKVerticalScrollBar/WKVerticalScrollBar-Prefix.pch";
 				INFOPLIST_FILE = "WKVerticalScrollBar/WKVerticalScrollBar-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
