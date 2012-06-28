@@ -13,7 +13,7 @@ Installing via [cocoapods](http://cocoapods.org) is the preferred method of usin
 Copy both `WKVerticalScrollBar.h` and `WKVerticalScrollBar.m` into your project.  Make sure you've linked your project with `QuartzCore.framework`.
 
 ## Usage
-`WKVerticalScrollBar` is meant to integrate quickly with projects using `UIScrollView` or `UIScrollView` like  `AQGridView`.  Getting started is easy:
+`WKVerticalScrollBar` is meant to integrate quickly with projects using `UIScrollView` or `UIScrollView` subclasses like  `AQGridView`.  Getting started is easy:
 
 1. Create a `WKVerticalScrollBar` instance either in IB or in your `-init` method.
 2. Add the `WKVerticalScrollBar` to the parent `UIView`, making sure that it is the frontmost `UIView` either by adding it last, or via `-bringSubviewToFront:`.
