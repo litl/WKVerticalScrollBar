@@ -48,7 +48,7 @@
         handleHitArea = CGRectZero;
         
         normalColor = [[UIColor colorWithWhite:0.6f alpha:1.0f] retain];
-        highlightedColor = [[UIColor colorWithWhite:0.4f alpha:1.0f] retain];
+        selectedColor = [[UIColor colorWithWhite:0.4f alpha:1.0f] retain];
 
         handle = [[CALayer alloc] init];
         [handle setAnchorPoint:CGPointMake(1.0f, 0.0f)];
@@ -68,7 +68,7 @@
     [_scrollView release];
     
     [normalColor release];
-    [highlightedColor release];
+    [selectedColor release];
 
     [super dealloc];
 }
@@ -98,9 +98,9 @@
     if (state == UIControlStateNormal) {
         [normalColor release];
         normalColor = [color retain];
-    } else if (state == UIControlStateHighlighted) {
-        [highlightedColor release];
-        highlightedColor = [color retain];
+    } else if (state == UIControlStateSelected) {
+        [selectedColor release];
+        selectedColor = [color retain];
     }
 }
 
@@ -135,7 +135,7 @@
     [CATransaction setAnimationDuration:0.3f];
 
     [handle setBounds:CGRectMake(0, 0, _handleHighlightWidth, [handle bounds].size.height)];
-    [handle setBackgroundColor:[highlightedColor CGColor]];
+    [handle setBackgroundColor:[selectedColor CGColor]];
     
     [CATransaction commit];
 }

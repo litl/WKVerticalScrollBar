@@ -35,7 +35,7 @@
     CGRect handleHitArea;
     
     UIColor *normalColor;
-    UIColor *highlightedColor;
+    UIColor *selectedColor;
 
     CGPoint lastTouchPoint;
     
