@@ -51,7 +51,7 @@
         [_textLabel setBackgroundColor:[UIColor clearColor]];
         [_textLabel setFont:[UIFont fontWithName:@"Baskerville" size:18.0f]];
         [_textLabel setNumberOfLines:0];
-        [_textLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [_textLabel setLineBreakMode:UILineBreakModeWordWrap];
         [_scrollView addSubview:_textLabel];
 
         // NOTE: Make sure vertical scroll bar is on top of the scroll view
