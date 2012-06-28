@@ -109,21 +109,25 @@
     [super layoutSubviews];
 
     CGRect bounds = [self bounds];
-  
     CGFloat contentHeight = [_scrollView contentSize].height;
-    CGFloat contentOffsetY = [_scrollView contentOffset].y;
     CGFloat frameHeight = [_scrollView frame].size.height;
     
+    // Calculate the current scroll value (0, 1) inclusive.
+    // Note that contentOffset.y only goes from (0, contentHeight - frameHeight)
+    CGFloat scrollValue = [_scrollView contentOffset].y / (contentHeight - frameHeight);
+    
+    // Set handleHeight proportionally to how much content is being currently viewed
     CGFloat handleHeight = CLAMP((frameHeight / contentHeight) * bounds.size.height,
                                  _handleMinimumHeight, bounds.size.height);
-    CGFloat handleY = CLAMP((contentOffsetY / contentHeight) * bounds.size.height,
+    
+    // Not only move the handle, but also shift where the position maps on to the handle,
+    // so that the handle doesn't go off screen when the scrollValue approaches 1.
+    CGFloat handleY = CLAMP((scrollValue * bounds.size.height) - (scrollValue * handleHeight),
                             0, bounds.size.height - handleHeight);
-    
-    // Preserve whatever width is currently set (by grow/shrinkHandle)
-    CGFloat oldWidth = [handle bounds].size.width ?: _handleWidth;
-    
+
+    CGFloat previousWidth = [handle bounds].size.width ?: _handleWidth;
     [handle setPosition:CGPointMake(bounds.size.width, handleY)];
-    [handle setBounds:CGRectMake(0, 0, oldWidth, handleHeight)];
+    [handle setBounds:CGRectMake(0, 0, previousWidth, handleHeight)];
     
     handleHitArea = CGRectMake(bounds.size.width - _handleHitWidth, handleY,
                                _handleHitWidth, handleHeight);
@@ -175,11 +179,12 @@
 
     CGSize contentSize = [_scrollView contentSize];
     CGPoint contentOffset = [_scrollView contentOffset];
+    CGFloat frameHeight = [_scrollView frame].size.height;
     CGFloat deltaY = ((point.y - lastTouchPoint.y) / [self bounds].size.height)
                      * [_scrollView contentSize].height;
     
-    [_scrollView setContentOffset:CGPointMake(contentOffset.x,
-                                              CLAMP(contentOffset.y + deltaY, 0, contentSize.height))
+    [_scrollView setContentOffset:CGPointMake(contentOffset.x,  CLAMP(contentOffset.y + deltaY,
+                                                                      0, contentSize.height - frameHeight))
                          animated:NO];
     lastTouchPoint = point;
 
