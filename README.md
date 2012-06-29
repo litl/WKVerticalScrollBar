@@ -1,4 +1,7 @@
 # WKVerticalScrollBar
+
+![WKVerticalScrollBar in action with optional accessory view](https://raw.github.com/litl/WKVerticalScrollBar/master/images/demo-01.png)
+
 A traditional-style scrollbar for iOS that integrates with existing UIScrollView or UIScrollView subclasses.
 
 `WKScrollBar` draws a persistent scrollbar handle on top of a UIScrollView.  When tapped and dragged, `WKScrollBar` will scroll proportionately to its position on the screen.  This comes in handy with apps which present long lists of items (`UITextView`, `UITableView`, `AQGridView`, etc), as it makes it easy to navigate to any point in a list.
