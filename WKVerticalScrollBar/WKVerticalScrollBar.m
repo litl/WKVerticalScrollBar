@@ -107,6 +107,9 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
 
     CGRect bounds = [self bounds];
     CGFloat contentHeight = [_scrollView contentSize].height;
@@ -131,6 +134,8 @@
     
     handleHitArea = CGRectMake(bounds.size.width - _handleHitWidth, handleY,
                                _handleHitWidth, handleHeight);
+    
+    [CATransaction commit];
 }
 
 - (void)growHandle
