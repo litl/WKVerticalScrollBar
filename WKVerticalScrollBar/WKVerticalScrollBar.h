@@ -40,6 +40,7 @@
     CGPoint lastTouchPoint;
     
     UIScrollView *_scrollView;
+    UIView *_handleAccessoryView;
 }
 
 @property (nonatomic, readwrite) CGFloat handleWidth;
@@ -49,6 +50,7 @@
 @property (nonatomic, readwrite) CGFloat handleMinimumHeight;
 
 @property (nonatomic, readwrite, retain) UIScrollView *scrollView;
+@property (nonatomic, readwrite, retain) UIView *handleAccessoryView;
 
 - (void)setHandleColor:(UIColor *)color forState:(UIControlState)state;
 

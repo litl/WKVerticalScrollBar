@@ -67,6 +67,8 @@
     [_scrollView removeObserver:self forKeyPath:@"contentSize"];
     [_scrollView release];
     
+    [_handleAccessoryView release];
+    
     [normalColor release];
     [selectedColor release];
 
@@ -90,6 +92,22 @@
     [_scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
     [_scrollView setShowsVerticalScrollIndicator:NO];
     
+    [self setNeedsLayout];
+}
+
+- (UIView *)handleAccessoryView
+{
+    return _handleAccessoryView;
+}
+
+- (void)setHandleAccessoryView:(UIView *)handleAccessoryView
+{
+    [_handleAccessoryView removeFromSuperview];
+    [_handleAccessoryView release];
+    _handleAccessoryView = [handleAccessoryView retain];
+    
+    [_handleAccessoryView setAlpha:0.0f];
+    [self addSubview:_handleAccessoryView];
     [self setNeedsLayout];
 }
 
@@ -132,6 +150,11 @@
     [handle setPosition:CGPointMake(bounds.size.width, handleY)];
     [handle setBounds:CGRectMake(0, 0, previousWidth, handleHeight)];
     
+    // Center the accessory view to the left of the handle
+    CGRect accessoryFrame = [_handleAccessoryView frame];
+    [_handleAccessoryView setCenter:CGPointMake(bounds.size.width - _handleHitWidth - (accessoryFrame.size.width / 2),
+                                                handleY + (handleHeight / 2))];
+    
     handleHitArea = CGRectMake(bounds.size.width - _handleHitWidth, handleY,
                                _handleHitWidth, handleHeight);
     
@@ -147,6 +170,10 @@
     [handle setBackgroundColor:[selectedColor CGColor]];
     
     [CATransaction commit];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        [_handleAccessoryView setAlpha:1.0f];
+    }];
 }
 
 - (void)shrinkHandle
@@ -158,6 +185,10 @@
     [handle setBackgroundColor:[normalColor CGColor]];
     
     [CATransaction commit];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        [_handleAccessoryView setAlpha:0.0f];
+    }];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
