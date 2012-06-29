@@ -34,6 +34,7 @@
 @synthesize textLabel = _textLabel;
 @synthesize scrollView = _scrollView;
 @synthesize verticalScrollBar = _verticalScrollBar;
+@synthesize accessoryView = _accessoryView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -45,6 +46,10 @@
                                                         green:0xE2 / 255.0f
                                                          blue:0xDD / 255.0f
                                                         alpha:1.0f]];
+        [_scrollView addObserver:self
+                      forKeyPath:@"contentOffset"
+                         options:NSKeyValueObservingOptionNew
+                         context:nil];
         [self addSubview:_scrollView];
         
         _textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -58,6 +63,10 @@
         _verticalScrollBar = [[WKVerticalScrollBar alloc] initWithFrame:CGRectZero];
         [_verticalScrollBar setScrollView:_scrollView];
         [self addSubview:_verticalScrollBar];
+        
+        _accessoryView = [[WKAccessoryView alloc] initWithFrame:CGRectMake(0, 0, 65, 30)];
+        [_accessoryView setForegroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+        [_verticalScrollBar setHandleAccessoryView:_accessoryView];
     }
     return self;
 }
@@ -89,6 +98,23 @@
 
     [_scrollView setFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height)];
     [_verticalScrollBar setFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height)];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (![keyPath isEqualToString:@"contentOffset"]) {
+        return;
+    }
+    
+    CGFloat contentOffsetY = [_scrollView contentOffset].y;
+    CGFloat contentHeight = [_scrollView contentSize].height;
+    CGFloat frameHeight = [_scrollView frame].size.height;
+    
+    CGFloat percent = (contentOffsetY / (contentHeight - frameHeight)) * 100;
+    [[_accessoryView textLabel] setText:[NSString stringWithFormat:@"%i%%", (int)percent]];
 }
 
 @end

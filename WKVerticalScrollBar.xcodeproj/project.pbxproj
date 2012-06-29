@@ -18,6 +18,7 @@
 		4B47E3B8159B98E900D73B5D /* WKTextDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3B7159B98E900D73B5D /* WKTextDemoViewController.m */; };
 		4B47E3BB159B99BE00D73B5D /* WKTextDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B47E3BA159B99BE00D73B5D /* WKTextDemoView.m */; };
 		4B47E3BD159B9DF600D73B5D /* fillerati.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B47E3BC159B9DF600D73B5D /* fillerati.txt */; };
+		4B5D137E159D329600EB3283 /* WKAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D137D159D329600EB3283 /* WKAccessoryView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		4B47E3B9159B99BE00D73B5D /* WKTextDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTextDemoView.h; sourceTree = "<group>"; };
 		4B47E3BA159B99BE00D73B5D /* WKTextDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTextDemoView.m; sourceTree = "<group>"; };
 		4B47E3BC159B9DF600D73B5D /* fillerati.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fillerati.txt; sourceTree = "<group>"; };
+		4B5D137C159D329600EB3283 /* WKAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAccessoryView.h; sourceTree = "<group>"; };
+		4B5D137D159D329600EB3283 /* WKAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAccessoryView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 			children = (
 				4B47E3A9159B93B300D73B5D /* WKAppDelegate.h */,
 				4B47E3AA159B93B300D73B5D /* WKAppDelegate.m */,
+				4B5D137C159D329600EB3283 /* WKAccessoryView.h */,
+				4B5D137D159D329600EB3283 /* WKAccessoryView.m */,
 				4B47E3B9159B99BE00D73B5D /* WKTextDemoView.h */,
 				4B47E3BA159B99BE00D73B5D /* WKTextDemoView.m */,
 				4B47E3B6159B98E900D73B5D /* WKTextDemoViewController.h */,
@@ -189,6 +194,7 @@
 				4B47E3B3159B965100D73B5D /* WKVerticalScrollBar.m in Sources */,
 				4B47E3B8159B98E900D73B5D /* WKTextDemoViewController.m in Sources */,
 				4B47E3BB159B99BE00D73B5D /* WKTextDemoView.m in Sources */,
+				4B5D137E159D329600EB3283 /* WKAccessoryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +300,7 @@
 				4B47E3B0159B93B300D73B5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

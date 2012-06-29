@@ -26,16 +26,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WKVerticalScrollBar.h"
-#import "WKAccessoryView.h"
 
-@interface WKTextDemoView : UIView
+@interface WKAccessoryView : UIView {
+@private
+    UILabel *_textLabel;
+}
 
-@property (nonatomic, readwrite) CGFloat verticalPadding;
+@property (nonatomic, readwrite) CGFloat arrowWidth;
+@property (nonatomic, readwrite, retain) UIColor *foregroundColor;
 
+@property (nonatomic, readwrite) UIEdgeInsets labelEdgeInsets;
 @property (nonatomic, readonly) UILabel *textLabel;
-@property (nonatomic, readonly) UIScrollView *scrollView;
-@property (nonatomic, readonly) WKVerticalScrollBar *verticalScrollBar;
-@property (nonatomic, readonly) WKAccessoryView *accessoryView;
 
 @end
