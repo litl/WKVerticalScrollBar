@@ -1,5 +1,6 @@
 # WKVerticalScrollBar
 
+![WKVerticalScrollBar in repose](https://raw.github.com/litl/WKVerticalScrollBar/master/images/demo-02.png)
 ![WKVerticalScrollBar in action with optional accessory view](https://raw.github.com/litl/WKVerticalScrollBar/master/images/demo-01.png)
 
 A traditional-style scrollbar for iOS that integrates with existing UIScrollView or UIScrollView subclasses.
