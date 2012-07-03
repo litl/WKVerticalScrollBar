@@ -9,10 +9,10 @@ A traditional-style scrollbar for iOS that integrates with existing UIScrollView
 
 ## Installing
 ### CocoaPods
-Installing via [cocoapods](http://cocoapods.org) is the preferred method of using `WKVerticalScrollBar`.  Download the [spec file](https://github.com/CocoaPods/Specs/pull/262) locally, and add the following line to your `Podfile`:
+Installing via [cocoapods](http://cocoapods.org) is the preferred method of using `WKVerticalScrollBar`.  Simply add the following line to your `Podfile`:
 
-    dependency 'WKVerticalScrollBar', '0.1.0', podspec => 'WKVerticalScrollBar.podspec'
-    
+    dependency 'WKVerticalScrollBar', '0.2.0'
+        
 ### Manually
 Copy both `WKVerticalScrollBar.h` and `WKVerticalScrollBar.m` into your project.  Make sure you've linked your project with `QuartzCore.framework`.
 
