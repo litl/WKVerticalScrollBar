@@ -54,6 +54,9 @@
         [handle setAnchorPoint:CGPointMake(1.0f, 0.0f)];
         [handle setFrame:CGRectMake(0, 0, _handleWidth, 0)];
         [handle setBackgroundColor:[normalColor CGColor]];
+        
+        handle.cornerRadius = _handleWidth/2;
+        
         [[self layer] addSublayer:handle];
     }
     return self;
@@ -168,12 +171,17 @@
 
     [handle setBounds:CGRectMake(0, 0, _handleHighlightWidth, [handle bounds].size.height)];
     [handle setBackgroundColor:[selectedColor CGColor]];
+    handle.cornerRadius = _handleHighlightWidth/2;
     
     [CATransaction commit];
     
-    [UIView animateWithDuration:0.3f animations:^{
-        [_handleAccessoryView setAlpha:1.0f];
-    }];
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationCurveLinear
+                    animations:^{
+                        [_handleAccessoryView setAlpha:1.0f];
+                    } completion:^(BOOL finished) {
+                    }];
 }
 
 - (void)shrinkHandle
@@ -183,12 +191,19 @@
     
     [handle setBounds:CGRectMake(0, 0, _handleWidth, [handle bounds].size.height)];
     [handle setBackgroundColor:[normalColor CGColor]];
+    handle.cornerRadius = _handleWidth/2;
     
     [CATransaction commit];
     
-    [UIView animateWithDuration:0.3f animations:^{
-        [_handleAccessoryView setAlpha:0.0f];
-    }];
+    
+    [UIView transitionWithView:self
+                      duration:0.3
+                       options:UIViewAnimationCurveLinear
+                    animations:^{
+                        [_handleAccessoryView setAlpha:0.0f];
+                    } completion:^(BOOL finished) {
+                        
+                    }];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
@@ -210,14 +225,15 @@
 }
 
 - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
-{    
+{
+    
     CGPoint point = [touch locationInView:self];
 
     CGSize contentSize = [_scrollView contentSize];
     CGPoint contentOffset = [_scrollView contentOffset];
     CGFloat frameHeight = [_scrollView frame].size.height;
-    CGFloat deltaY = ((point.y - lastTouchPoint.y) / [self bounds].size.height)
-                     * [_scrollView contentSize].height;
+    CGFloat deltaY = ((point.y - lastTouchPoint.y) / (frameHeight - handle.bounds.size.height))
+                     * contentSize.height;
     
     [_scrollView setContentOffset:CGPointMake(contentOffset.x,  CLAMP(contentOffset.y + deltaY,
                                                                       0, contentSize.height - frameHeight))
@@ -246,6 +262,14 @@
     }
 
     [self setNeedsLayout];
+}
+
+#pragma mark - setters
+
+- (void)setHandleWidth:(CGFloat)handleWidth
+{
+    _handleWidth = handleWidth;
+    handle.cornerRadius = _handleWidth/2;
 }
 
 @end
