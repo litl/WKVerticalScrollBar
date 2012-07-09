@@ -33,7 +33,7 @@
 
 @synthesize handleWidth = _handleWidth;
 @synthesize handleHitWidth = _handleHitWidth;
-@synthesize handleHighlightWidth = _handleHighlightWidth;
+@synthesize handleSelectedWidth = _handleSelectedWidth;
 
 @synthesize handleMinimumHeight = _handleMinimumHeight;
 
@@ -41,7 +41,7 @@
 {
     if ((self = [super initWithFrame:frame])) {
         _handleWidth = 5.0f;
-        _handleHighlightWidth = 15.0f;
+        _handleSelectedWidth = 15.0f;
         _handleHitWidth = 44.0f;
         _handleMinimumHeight = 70.0f;
         
@@ -166,7 +166,7 @@
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.3f];
 
-    [handle setBounds:CGRectMake(0, 0, _handleHighlightWidth, [handle bounds].size.height)];
+    [handle setBounds:CGRectMake(0, 0, _handleSelectedWidth, [handle bounds].size.height)];
     [handle setBackgroundColor:[selectedColor CGColor]];
     
     [CATransaction commit];

@@ -45,7 +45,7 @@
 
 @property (nonatomic, readwrite) CGFloat handleWidth;
 @property (nonatomic, readwrite) CGFloat handleHitWidth;
-@property (nonatomic, readwrite) CGFloat handleHighlightWidth;
+@property (nonatomic, readwrite) CGFloat handleSelectedWidth;
 
 @property (nonatomic, readwrite) CGFloat handleMinimumHeight;
 
