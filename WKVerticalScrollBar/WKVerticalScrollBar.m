@@ -35,6 +35,9 @@
 @synthesize handleHitWidth = _handleHitWidth;
 @synthesize handleSelectedWidth = _handleSelectedWidth;
 
+@synthesize handleCornerRadius = _handleCornerRadius;
+@synthesize handleSelectedCornerRadius = _handleSelectedCornerRadius;
+
 @synthesize handleMinimumHeight = _handleMinimumHeight;
 
 - (id)initWithFrame:(CGRect)frame
@@ -45,12 +48,16 @@
         _handleHitWidth = 44.0f;
         _handleMinimumHeight = 70.0f;
         
+        _handleCornerRadius = _handleWidth / 2;
+        _handleSelectedCornerRadius = _handleSelectedWidth / 2;
+        
         handleHitArea = CGRectZero;
         
         normalColor = [[UIColor colorWithWhite:0.6f alpha:1.0f] retain];
         selectedColor = [[UIColor colorWithWhite:0.4f alpha:1.0f] retain];
 
         handle = [[CALayer alloc] init];
+        [handle setCornerRadius:_handleCornerRadius];
         [handle setAnchorPoint:CGPointMake(1.0f, 0.0f)];
         [handle setFrame:CGRectMake(0, 0, _handleWidth, 0)];
         [handle setBackgroundColor:[normalColor CGColor]];
@@ -166,6 +173,7 @@
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.3f];
 
+    [handle setCornerRadius:_handleSelectedCornerRadius];
     [handle setBounds:CGRectMake(0, 0, _handleSelectedWidth, [handle bounds].size.height)];
     [handle setBackgroundColor:[selectedColor CGColor]];
     
@@ -181,6 +189,7 @@
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.3f];
     
+    [handle setCornerRadius:_handleCornerRadius];
     [handle setBounds:CGRectMake(0, 0, _handleWidth, [handle bounds].size.height)];
     [handle setBackgroundColor:[normalColor CGColor]];
     

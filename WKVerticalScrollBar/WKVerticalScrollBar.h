@@ -47,6 +47,9 @@
 @property (nonatomic, readwrite) CGFloat handleHitWidth;
 @property (nonatomic, readwrite) CGFloat handleSelectedWidth;
 
+@property (nonatomic, readwrite) CGFloat handleCornerRadius;
+@property (nonatomic, readwrite) CGFloat handleSelectedCornerRadius;
+
 @property (nonatomic, readwrite) CGFloat handleMinimumHeight;
 
 @property (nonatomic, readwrite, retain) UIScrollView *scrollView;

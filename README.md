@@ -56,6 +56,10 @@ Modifying the look and feel of `WKScrollBar` can be done via the following metho
     Sets the minimum height of the handle.
     
     The height of the handle is calculated based upon the ratio of the `contentOffset` and the `frame`.  If the `contentOffset` is too large, the handle may be too small to touch comfortably.  Use this parameter to ensure that a minimum handle size is preserved.
+    
+* `-setHandleCornerRadius:` and `-setHandleSelectedCornerRadius:`
+
+    Sets the corner radius of the handle in normal and selected mode.
 
 ## Contributing
 Anyone who would like to contribute to the project is more than welcome.
