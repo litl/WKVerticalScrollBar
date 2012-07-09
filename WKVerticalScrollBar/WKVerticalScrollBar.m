@@ -148,6 +148,8 @@
     CGFloat handleHeight = CLAMP((frameHeight / contentHeight) * bounds.size.height,
                                  _handleMinimumHeight, bounds.size.height);
     
+    [handle setOpacity:(handleHeight == bounds.size.height) ? 0.0f : 1.0f];
+    
     // Not only move the handle, but also shift where the position maps on to the handle,
     // so that the handle doesn't go off screen when the scrollValue approaches 1.
     CGFloat handleY = CLAMP((scrollValue * bounds.size.height) - (scrollValue * handleHeight),
