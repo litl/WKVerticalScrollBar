@@ -170,8 +170,17 @@
     [CATransaction commit];
 }
 
+- (BOOL)handleVisible
+{
+    return [handle opacity] == 1.0f;
+}
+
 - (void)growHandle
 {
+    if (![self handleVisible]) {
+        return;
+    }
+    
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.3f];
 
@@ -187,7 +196,11 @@
 }
 
 - (void)shrinkHandle
-{    
+{
+    if (![self handleVisible]) {
+        return;
+    }
+    
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.3f];
     
@@ -209,6 +222,10 @@
 
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    if (![self handleVisible]) {
+        return NO;
+    }
+    
     lastTouchPoint = [touch locationInView:self];
 
     // When the user initiates a drag, make the handle grow so it's easier to see
