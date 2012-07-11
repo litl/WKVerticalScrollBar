@@ -36,6 +36,9 @@
     
     UIColor *normalColor;
     UIColor *selectedColor;
+    
+    CGFloat _handleCornerRadius;
+    CGFloat _handleSelectedCornerRadius;
 
     CGPoint lastTouchPoint;
     

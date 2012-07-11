@@ -35,9 +35,6 @@
 @synthesize handleHitWidth = _handleHitWidth;
 @synthesize handleSelectedWidth = _handleSelectedWidth;
 
-@synthesize handleCornerRadius = _handleCornerRadius;
-@synthesize handleSelectedCornerRadius = _handleSelectedCornerRadius;
-
 @synthesize handleMinimumHeight = _handleMinimumHeight;
 
 - (id)initWithFrame:(CGRect)frame
@@ -126,6 +123,34 @@
     } else if (state == UIControlStateSelected) {
         [selectedColor release];
         selectedColor = [color retain];
+    }
+}
+
+- (CGFloat)handleCornerRadius
+{
+    return _handleCornerRadius;
+}
+
+- (void)setHandleCornerRadius:(CGFloat)handleCornerRadius
+{
+    _handleCornerRadius = handleCornerRadius;
+    
+    if (!handleDragged) {
+        [handle setCornerRadius:_handleCornerRadius];
+    }
+}
+
+- (CGFloat)handleSelectedCornerRadius
+{
+    return _handleSelectedCornerRadius;
+}
+
+- (void)setHandleSelectedCornerRadius:(CGFloat)handleSelectedCornerRadius
+{
+    _handleSelectedCornerRadius = handleSelectedCornerRadius;
+    
+    if (handleDragged) {
+        [handle setCornerRadius:_handleSelectedCornerRadius];
     }
 }
 
