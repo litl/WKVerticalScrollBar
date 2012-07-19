@@ -158,12 +158,17 @@
 {
     [super layoutSubviews];
     
+    CGFloat contentHeight = [_scrollView contentSize].height;
+    CGFloat frameHeight = [_scrollView frame].size.height;
+    
+    if (contentHeight - frameHeight == 0) {
+        return; // prevent divide by 0 below when we arrive here before _scrollView has geometry
+    }
+
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
 
     CGRect bounds = [self bounds];
-    CGFloat contentHeight = [_scrollView contentSize].height;
-    CGFloat frameHeight = [_scrollView frame].size.height;
     
     // Calculate the current scroll value (0, 1) inclusive.
     // Note that contentOffset.y only goes from (0, contentHeight - frameHeight)
