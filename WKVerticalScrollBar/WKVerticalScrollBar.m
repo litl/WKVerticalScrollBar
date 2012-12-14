@@ -160,10 +160,6 @@
     
     CGFloat contentHeight = [_scrollView contentSize].height;
     CGFloat frameHeight = [_scrollView frame].size.height;
-    
-    if (contentHeight - frameHeight == 0) {
-        return; // prevent divide by 0 below when we arrive here before _scrollView has geometry
-    }
 
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
@@ -172,7 +168,9 @@
     
     // Calculate the current scroll value (0, 1) inclusive.
     // Note that contentOffset.y only goes from (0, contentHeight - frameHeight)
-    CGFloat scrollValue = [_scrollView contentOffset].y / (contentHeight - frameHeight);
+    // prevent divide by 0 below when we arrive here before _scrollView has geometry
+    CGFloat scrollValue = (contentHeight - frameHeight == 0) ? 0
+                           : [_scrollView contentOffset].y / (contentHeight - frameHeight);
     
     // Set handleHeight proportionally to how much content is being currently viewed
     CGFloat handleHeight = CLAMP((frameHeight / contentHeight) * bounds.size.height,
