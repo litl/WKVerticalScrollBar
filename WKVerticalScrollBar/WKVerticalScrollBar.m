@@ -29,6 +29,10 @@
 
 #define CLAMP(x, low, high)  (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
 
+@interface WKVerticalScrollBar ()
+- (void)commonInit;
+@end
+
 @implementation WKVerticalScrollBar
 
 @synthesize handleWidth = _handleWidth;
@@ -40,27 +44,40 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) {
-        _handleWidth = 5.0f;
-        _handleSelectedWidth = 15.0f;
-        _handleHitWidth = 44.0f;
-        _handleMinimumHeight = 70.0f;
-        
-        _handleCornerRadius = _handleWidth / 2;
-        _handleSelectedCornerRadius = _handleSelectedWidth / 2;
-        
-        handleHitArea = CGRectZero;
-        
-        normalColor = [[UIColor colorWithWhite:0.6f alpha:1.0f] retain];
-        selectedColor = [[UIColor colorWithWhite:0.4f alpha:1.0f] retain];
-
-        handle = [[CALayer alloc] init];
-        [handle setCornerRadius:_handleCornerRadius];
-        [handle setAnchorPoint:CGPointMake(1.0f, 0.0f)];
-        [handle setFrame:CGRectMake(0, 0, _handleWidth, 0)];
-        [handle setBackgroundColor:[normalColor CGColor]];
-        [[self layer] addSublayer:handle];
+        [self commonInit];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder])) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    _handleWidth = 5.0f;
+    _handleSelectedWidth = 15.0f;
+    _handleHitWidth = 44.0f;
+    _handleMinimumHeight = 70.0f;
+    
+    _handleCornerRadius = _handleWidth / 2;
+    _handleSelectedCornerRadius = _handleSelectedWidth / 2;
+    
+    handleHitArea = CGRectZero;
+    
+    normalColor = [[UIColor colorWithWhite:0.6f alpha:1.0f] retain];
+    selectedColor = [[UIColor colorWithWhite:0.4f alpha:1.0f] retain];
+    
+    handle = [[CALayer alloc] init];
+    [handle setCornerRadius:_handleCornerRadius];
+    [handle setAnchorPoint:CGPointMake(1.0f, 0.0f)];
+    [handle setFrame:CGRectMake(0, 0, _handleWidth, 0)];
+    [handle setBackgroundColor:[normalColor CGColor]];
+    [[self layer] addSublayer:handle];
 }
 
 - (void)dealloc
