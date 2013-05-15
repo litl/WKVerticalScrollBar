@@ -161,8 +161,12 @@
     CGFloat contentHeight = [_scrollView contentSize].height;
     CGFloat frameHeight = [_scrollView frame].size.height;
     
-    if (contentHeight - frameHeight == 0) {
-        return; // prevent divide by 0 below when we arrive here before _scrollView has geometry
+    if (contentHeight <= frameHeight) {
+        // Prevent divide by 0 below when we arrive here before _scrollView has geometry.
+        // Also explicity hide handle when not needed, occasionally it's left visible due to
+        // layoutSubviews being called with transient & invalid geometery
+        [handle setOpacity:0.0f];
+        return;
     }
 
     [CATransaction begin];
