@@ -62,7 +62,7 @@
     _handleWidth = 5.0f;
     _handleSelectedWidth = 15.0f;
     _handleHitWidth = 44.0f;
-    _handleMinimumHeight = 70.0f;
+    _handleMinimumHeight = 50.0f;
     
     _handleCornerRadius = _handleWidth / 2;
     _handleSelectedCornerRadius = _handleSelectedWidth / 2;
@@ -198,10 +198,12 @@
                            : [_scrollView contentOffset].y / (contentHeight - frameHeight);
     
     // Set handleHeight proportionally to how much content is being currently viewed
+    // up to max handle height of 50% of view
+    CGFloat maxHandleHeight = bounds.size.height / 2.0f;
     CGFloat handleHeight = CLAMP((frameHeight / contentHeight) * bounds.size.height,
-                                 _handleMinimumHeight, bounds.size.height);
+                                 _handleMinimumHeight, maxHandleHeight);
     
-    [handle setOpacity:(handleHeight == bounds.size.height) ? 0.0f : 1.0f];
+    [handle setOpacity:1.0f];
     
     // Not only move the handle, but also shift where the position maps on to the handle,
     // so that the handle doesn't go off screen when the scrollValue approaches 1.
