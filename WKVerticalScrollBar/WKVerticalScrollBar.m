@@ -123,9 +123,10 @@
 
 - (void)setHandleAccessoryView:(UIView *)handleAccessoryView
 {
+    [handleAccessoryView retain];
     [_handleAccessoryView removeFromSuperview];
     [_handleAccessoryView release];
-    _handleAccessoryView = [handleAccessoryView retain];
+    _handleAccessoryView = handleAccessoryView;
     
     [_handleAccessoryView setAlpha:0.0f];
     [self addSubview:_handleAccessoryView];
@@ -135,11 +136,13 @@
 - (void)setHandleColor:(UIColor *)color forState:(UIControlState)state
 {
     if (state == UIControlStateNormal) {
+        [color retain];
         [normalColor release];
-        normalColor = [color retain];
+        normalColor = color;
     } else if (state == UIControlStateSelected) {
+        [color retain];
         [selectedColor release];
-        selectedColor = [color retain];
+        selectedColor = color;
     }
 }
 
