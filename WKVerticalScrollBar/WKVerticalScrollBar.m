@@ -80,6 +80,12 @@
     [[self layer] addSublayer:handle];
 }
 
+- (void)setHandleWidth:(CGFloat)handleWidth
+{
+    _handleWidth = handleWidth;
+    [handle setFrame:CGRectMake(0.f, 0.f, _handleWidth, 0.f)];
+}
+
 - (void)dealloc
 {
     [handle release];
@@ -139,6 +145,7 @@
         [color retain];
         [normalColor release];
         normalColor = color;
+        [handle setBackgroundColor:[normalColor CGColor]];
     } else if (state == UIControlStateSelected) {
         [color retain];
         [selectedColor release];
