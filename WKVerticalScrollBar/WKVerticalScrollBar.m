@@ -219,7 +219,8 @@
     
     // Center the accessory view to the left of the handle
     CGRect accessoryFrame = [_handleAccessoryView frame];
-    [_handleAccessoryView setCenter:CGPointMake(bounds.size.width - _handleHitWidth - (accessoryFrame.size.width / 2),
+    CGFloat offsetFromHandle = _accessorySeparationFromHandle ?: _handleHitWidth;
+    [_handleAccessoryView setCenter:CGPointMake(bounds.size.width - offsetFromHandle - (accessoryFrame.size.width / 2),
                                                 handleY + (handleHeight / 2))];
     
     handleHitArea = CGRectMake(bounds.size.width - _handleHitWidth, handleY,
