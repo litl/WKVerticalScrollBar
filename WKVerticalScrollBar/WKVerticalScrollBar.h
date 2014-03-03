@@ -49,6 +49,7 @@
 @property (nonatomic, readwrite) CGFloat handleWidth;
 @property (nonatomic, readwrite) CGFloat handleHitWidth;
 @property (nonatomic, readwrite) CGFloat handleSelectedWidth;
+@property (nonatomic, readwrite) CGFloat accessorySeparationFromHandle;
 
 @property (nonatomic, readwrite) CGFloat handleCornerRadius;
 @property (nonatomic, readwrite) CGFloat handleSelectedCornerRadius;
