@@ -29,6 +29,48 @@
 
 #define CLAMP(x, low, high)  (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
 
+@implementation WKVerticalScrollHandle
+
+- (void)dealloc
+{
+    [_strokeColor release];
+    [super dealloc];
+}
+
+- (void)drawInContext:(CGContextRef)ctx
+{
+    CGContextSetFillColorWithColor(ctx, [self backgroundColor]);
+    CGContextSetStrokeColorWithColor(ctx, [_strokeColor CGColor]);
+    CGContextSetLineJoin(ctx, kCGLineJoinMiter);
+    CGContextSetLineWidth(ctx, _strokeWidth);
+    
+    // The stroke is drawn on the edge of a rect, anything larger than 1 px is drawn to either side.
+    // But the context rect is clipped here so we need to indent the stroked line by half its width.
+    CGRect rect = self.bounds;
+    CGFloat X = rect.origin.x + _strokeWidth / 2;
+    CGFloat Y = rect.origin.y + _strokeWidth / 2;
+    CGFloat W = rect.size.width;
+    CGFloat H = rect.size.height - _strokeWidth / 2 ;
+    
+    CGContextBeginPath(ctx);
+    CGContextMoveToPoint(ctx, W, H);
+    CGContextAddLineToPoint(ctx, X, H);
+    CGContextAddLineToPoint(ctx, X, Y);
+    CGContextAddLineToPoint(ctx, W, Y);
+    CGContextDrawPath(ctx, kCGPathFillStroke);
+    
+    CGContextBeginPath(ctx);
+    CGContextSetFillColorWithColor(ctx, [_strokeColor CGColor]);
+    CGContextAddEllipseInRect(ctx,
+                              CGRectMake(((W - _centerDotWidth + _strokeWidth) / 2),
+                                         (H - _centerDotWidth) / 2,
+                                         _centerDotWidth,
+                                         _centerDotWidth));
+    CGContextDrawPath(ctx, kCGPathFill);
+}
+
+@end
+
 @interface WKVerticalScrollBar ()
 - (void)commonInit;
 @end
@@ -72,11 +114,14 @@
     normalColor = [[UIColor colorWithWhite:0.6f alpha:1.0f] retain];
     selectedColor = [[UIColor colorWithWhite:0.4f alpha:1.0f] retain];
     
-    handle = [[CALayer alloc] init];
+    handle = [[WKVerticalScrollHandle alloc] init];
     [handle setCornerRadius:_handleCornerRadius];
     [handle setAnchorPoint:CGPointMake(1.0f, 0.0f)];
     [handle setFrame:CGRectMake(0, 0, _handleWidth, 0)];
     [handle setBackgroundColor:[normalColor CGColor]];
+    [handle setStrokeWidth:0.0f];
+    [handle setStrokeColor:[UIColor clearColor]];
+    [handle setCenterDotWidth:0.0f];
     [[self layer] addSublayer:handle];
 }
 
@@ -219,7 +264,9 @@
     
     // Center the accessory view to the left of the handle
     CGRect accessoryFrame = [_handleAccessoryView frame];
-    CGFloat offsetFromHandle = _accessorySeparationFromHandle ?: _handleHitWidth;
+    CGFloat offsetFromHandle = _accessorySeparationFromHandle ?
+               _accessorySeparationFromHandle + previousWidth :
+               _handleHitWidth;
     [_handleAccessoryView setCenter:CGPointMake(bounds.size.width - offsetFromHandle - (accessoryFrame.size.width / 2),
                                                 handleY + (handleHeight / 2))];
     
