@@ -28,9 +28,17 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@interface WKVerticalScrollHandle : CALayer
+
+@property (nonatomic, readwrite) CGFloat strokeWidth;
+@property (nonatomic, readwrite) CGFloat centerDotWidth;
+@property (nonatomic, retain) UIColor *strokeColor;
+
+@end
+
 @interface WKVerticalScrollBar : UIControl {
 @protected
-    CALayer *handle;
+    WKVerticalScrollHandle *handle;
     BOOL handleDragged;
     CGRect handleHitArea;
     
