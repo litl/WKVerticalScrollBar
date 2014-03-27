@@ -68,5 +68,6 @@
 @property (nonatomic, readwrite, retain) UIView *handleAccessoryView;
 
 - (void)setHandleColor:(UIColor *)color forState:(UIControlState)state;
+- (CGFloat)accessoryAnimationOffsetX;
 
 @end

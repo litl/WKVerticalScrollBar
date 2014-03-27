@@ -151,8 +151,9 @@
     [_scrollView removeObserver:self forKeyPath:@"contentOffset"];
     [_scrollView removeObserver:self forKeyPath:@"contentSize"];
 
+    [scrollView retain];
     [_scrollView release];
-    _scrollView = [scrollView retain];
+    _scrollView = scrollView;
     
     [_scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     [_scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
@@ -175,6 +176,7 @@
     
     [_handleAccessoryView setAlpha:0.0f];
     [self addSubview:_handleAccessoryView];
+    [self sendSubviewToBack:_handleAccessoryView];
     [self setNeedsLayout];
 }
 
@@ -267,11 +269,15 @@
     CGFloat offsetFromHandle = _accessorySeparationFromHandle ?
                _accessorySeparationFromHandle + previousWidth :
                _handleHitWidth;
-    [_handleAccessoryView setCenter:CGPointMake(bounds.size.width - offsetFromHandle - (accessoryFrame.size.width / 2),
-                                                handleY + (handleHeight / 2))];
     
-    handleHitArea = CGRectMake(bounds.size.width - _handleHitWidth, handleY,
-                               _handleHitWidth, handleHeight);
+    // Either move the accessory in a little via a child class override of accessoryAnimationOffsetX
+    // or place it fully on screen, offset from the handle.
+    CGFloat accessoryCenterX = [self accessoryAnimationOffsetX] ? :
+                                bounds.size.width - offsetFromHandle - accessoryFrame.size.width / 2.0;
+
+    [_handleAccessoryView setCenter:CGPointMake(accessoryCenterX, handleY + (handleHeight / 2))];
+
+    handleHitArea = CGRectMake(bounds.size.width - _handleHitWidth, handleY, _handleHitWidth, handleHeight);
     
     [CATransaction commit];
 }
@@ -380,6 +386,11 @@
     }
 
     [self setNeedsLayout];
+}
+
+- (CGFloat)accessoryAnimationOffsetX
+{
+    return 0.0;
 }
 
 @end
