@@ -40,6 +40,8 @@
 @synthesize handleSelectedWidth = _handleSelectedWidth;
 
 @synthesize handleMinimumHeight = _handleMinimumHeight;
+@synthesize useExplicitHandleHeight = _useExplicitHandleHeight;
+@synthesize explicitHandleHeight = _explicitHandleHeight;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -139,16 +141,31 @@
         [color retain];
         [normalColor release];
         normalColor = color;
+        if (!handleDragged) {
+            [handle setBackgroundColor: color.CGColor];
+        }
     } else if (state == UIControlStateSelected) {
         [color retain];
         [selectedColor release];
         selectedColor = color;
+        if (handleDragged) {
+            [handle setBackgroundColor: color.CGColor];
+        }
     }
 }
 
 - (CGFloat)handleCornerRadius
 {
     return _handleCornerRadius;
+}
+
+- (void)setHandleWidth:(CGFloat)handleWidth
+{
+    _handleWidth = handleWidth;
+  
+    CGRect handleFrame = handle.frame;
+    handleFrame.size.width = handleWidth;
+    handle.frame = handleFrame;
 }
 
 - (void)setHandleCornerRadius:(CGFloat)handleCornerRadius
@@ -200,10 +217,7 @@
     CGFloat scrollValue = (contentHeight - frameHeight == 0) ? 0
                            : [_scrollView contentOffset].y / (contentHeight - frameHeight);
     
-    // Set handleHeight proportionally to how much content is being currently viewed
-    CGFloat handleHeight = CLAMP((frameHeight / contentHeight) * bounds.size.height,
-                                 _handleMinimumHeight, bounds.size.height);
-    
+    CGFloat handleHeight = [self handleHeight];
     [handle setOpacity:(handleHeight == bounds.size.height) ? 0.0f : 1.0f];
     
     // Not only move the handle, but also shift where the position maps on to the handle,
@@ -224,6 +238,22 @@
                                _handleHitWidth, handleHeight);
     
     [CATransaction commit];
+}
+
+- (CGFloat)handleHeight
+{
+  if (_useExplicitHandleHeight) {
+    return _explicitHandleHeight;
+  } else {
+    CGFloat contentHeight = [_scrollView contentSize].height;
+    CGFloat frameHeight = [_scrollView frame].size.height;
+    CGRect bounds = [self bounds];
+  
+    // Set handleHeight proportionally to how much content is being currently viewed
+    return CLAMP((frameHeight/ contentHeight) * bounds.size.height,
+                 _handleMinimumHeight,
+                 bounds.size.height);
+  }
 }
 
 - (BOOL)handleVisible
@@ -300,8 +330,8 @@
     CGSize contentSize = [_scrollView contentSize];
     CGPoint contentOffset = [_scrollView contentOffset];
     CGFloat frameHeight = [_scrollView frame].size.height;
-    CGFloat deltaY = ((point.y - lastTouchPoint.y) / [self bounds].size.height)
-                     * [_scrollView contentSize].height;
+    CGFloat deltaY = (point.y - lastTouchPoint.y) / (self.bounds.size.height-[self handleHeight])
+                     * (contentSize.height-frameHeight);
     
     [_scrollView setContentOffset:CGPointMake(contentOffset.x,  CLAMP(contentOffset.y + deltaY,
                                                                       0, contentSize.height - frameHeight))
