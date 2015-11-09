@@ -55,6 +55,18 @@
 
 @property (nonatomic, readwrite) CGFloat handleMinimumHeight;
 
+/**
+ *  Whether to use a custom height for the handle.
+ *
+ *  @param false Handle height proportional to the visible portion of the scrollview content
+ *  @param true  Use custom handle height
+ */
+@property (nonatomic, readwrite) BOOL useExplicitHandleHeight;
+/**
+ * Custom height of the handle, if useExplicitHandleHeight is enabled.
+ */
+@property (nonatomic, readwrite) CGFloat explicitHandleHeight;
+
 @property (nonatomic, readwrite, retain) UIScrollView *scrollView;
 @property (nonatomic, readwrite, retain) UIView *handleAccessoryView;
 
