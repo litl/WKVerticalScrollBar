@@ -139,10 +139,16 @@
         [color retain];
         [normalColor release];
         normalColor = color;
+        if (!handleDragged) {
+            [handle setBackgroundColor: color.CGColor];
+        }
     } else if (state == UIControlStateSelected) {
         [color retain];
         [selectedColor release];
         selectedColor = color;
+        if (handleDragged) {
+            [handle setBackgroundColor: color.CGColor];
+        }
     }
 }
 
