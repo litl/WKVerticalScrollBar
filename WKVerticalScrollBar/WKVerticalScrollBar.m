@@ -157,6 +157,15 @@
     return _handleCornerRadius;
 }
 
+- (void)setHandleWidth:(CGFloat)handleWidth
+{
+    _handleWidth = handleWidth;
+  
+    CGRect handleFrame = handle.frame;
+    handleFrame.size.width = handleWidth;
+    handle.frame = handleFrame;
+}
+
 - (void)setHandleCornerRadius:(CGFloat)handleCornerRadius
 {
     _handleCornerRadius = handleCornerRadius;
