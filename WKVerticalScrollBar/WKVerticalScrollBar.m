@@ -174,6 +174,19 @@
     }
 }
 
+- (CGFloat)handleWidth
+{
+    return _handleWidth;
+}
+
+- (void)setHandleWidth:(CGFloat)handleWidth
+{
+    _handleWidth = handleWidth;
+    if (!handleDragged) {
+        [handle setBounds:CGRectMake(0, 0, _handleWidth, [handle bounds].size.height)];
+    }
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
