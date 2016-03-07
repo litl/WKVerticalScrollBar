@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/litl/WKVerticalScrollBar.git' }
 
   s.source_files = 'WKVerticalScrollBar/WKVerticalScrollBar.{h,m}'
+  s.requires_arc = false
   
   s.frameworks   = 'QuartzCore'
 end
